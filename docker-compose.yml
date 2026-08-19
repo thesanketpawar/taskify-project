@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: taskify-db
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: adminpassword
+
+    volumes:
+      - mongo-data:/data/db
+
+
+  backend:
+    build: ./backend
+    container_name: taskify-backend
+    ports:
+      - "5001:5000"
+    environment:
+      - MONGO_URI=mongodb://admin:adminpassword@mongodb:27017/taskify?authSource=admin
+      - PORT=5000
+    depends_on:
+      - mongodb
+
+
+
+  frontend:
+    build: ./frontend
+    container_name: taskify-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+
+volumes:
+  mongo-data:
+
+
+  
