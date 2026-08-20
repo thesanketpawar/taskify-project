@@ -3,7 +3,8 @@ kind: Service
 metadata:
   name: mongodb-service
   namespace: taskify
-
 spec:
   type: ExternalName
-  externalName: 10.0.3.144
+  externalName: 10.0.3.144  # <-- Replace with your Database EC2's actual Private IP
+  ports:
+  - port: 27017
