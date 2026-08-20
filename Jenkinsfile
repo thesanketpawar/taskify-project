@@ -1,5 +1,4 @@
 # Make sure you are in your project root folder
-cat << 'EOF' > Jenkinsfile
 pipeline {
     agent any
 
@@ -26,4 +25,3 @@ pipeline {
         }
     }
 }
-EOF
