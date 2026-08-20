@@ -3,21 +3,18 @@ kind: Deployment
 metadata:
   name: taskify-backend
   namespace: taskify
-
 spec:
-  replicas: 2
+  replicas: 1
   selector:
-  matchLabels:
-    app: taskify-backend
-  spec:
-    containers:
-    - name: backend
-      image: docker.io/thesanketpawar/taskify-backend:latest
-      ports:
-      - containerPort: 5000
-      envFrom:
-      - configMapRef:
-          name: taskify-configmap
-      - secretRef:
-          name: taskify-secrets
-        
+    matchLabels:
+      app: taskify-backend
+  template:
+    metadata:
+      labels:
+        app: taskify-backend
+    spec:
+      containers:
+      - name: backend
+        image: thesanketpawar/taskify-backend:latest
+        ports:
+        - containerPort: 5000
