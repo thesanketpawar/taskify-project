@@ -1,5 +1,5 @@
 pipeline {
-    agent any {
+    agent any
         environment {
             DOCKERHUB_CREDENTIALS = credentials("docker-cred")
             DOCKER_USER = "thesanketpawar"
@@ -45,7 +45,5 @@ pipeline {
                 }
             }
         }
-        }
     }
-    
 }
