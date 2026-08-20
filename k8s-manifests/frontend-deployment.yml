@@ -3,19 +3,18 @@ kind: Deployment
 metadata:
   name: taskify-frontend
   namespace: taskify
-
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: taskify-frontend
-    template:
-      metadata:
-        labels:
-          app: taskify-frontend
-      spec:
-        containers:
-        - name: frontend
-          image: docker.io/thesanketpawar/taskify-frontend:latest
-          ports:
-          - containerPort: 80
+  template:
+    metadata:
+      labels:
+        app: taskify-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: thesanketpawar/taskify-frontend:latest
+        ports:
+        - containerPort: 80
