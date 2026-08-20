@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskify-backend
+  namespace: taskify
+
+spec:
+  replicas: 2
+  selector:
+  matchLabels:
+    app: taskify-backend
+  spec:
+    containers:
+    - name: backend
+      image: docker.io/thesanketpawar/taskify-backend:latest
+      ports:
+      - containerPort: 5000
+      envFrom:
+      - configMapRef:
+          name: taskify-configmap
+      - secretRef:
+          name: taskify-secrets
+        
