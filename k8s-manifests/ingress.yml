@@ -1,26 +1,16 @@
-apiVersion: apps/v1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
- name: taskify-ingress
- namespace: taskify
-
+  name: taskify-ingress
+  namespace: taskify
 spec:
-  ingressClassName: nginx
   rules:
   - http:
-    paths:
-    -  path: /api
-      pathType: Prefix
-      backend:
-        service:
-          name: taskify-backend-service
-          port:
-            number: 5000
-
-    - path: /
-      pathType: Prefix
-      backend: 
-        service:
-          name: taskify-frontend-service
-          port:
-            number: 80
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: taskify-frontend-service
+            port:
+              number: 80
