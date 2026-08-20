@@ -1,4 +1,3 @@
-# Make sure you are in your project root folder
 pipeline {
     agent any
 
