@@ -41,7 +41,7 @@ pipeline {
         stage('Deploy all Manifests to k8s ') {
             steps {
                 script {
-                    sh "kubectl apply -f k8s-manifests/"
+                    sh 'export PATH=$PATH:/usr/bin:/usr/local/bin; kubectl apply -f k8s-manifests/'
                 }
             }
         }
