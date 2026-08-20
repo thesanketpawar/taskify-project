@@ -1,8 +1,7 @@
 apiVersion: v1
-kind: Configmap
+kind: ConfigMap
 metadata:
   name: taskify-configmap
   namespace: taskify
 data:
-  NODE_ENV: "production"
   PORT: "5000"
