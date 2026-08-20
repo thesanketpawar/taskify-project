@@ -5,3 +5,4 @@ metadata:
   namespace: taskify
 data:
   PORT: "5000"
+  MONGO_URI: "mongodb://mongodb-service:27017/taskify"
