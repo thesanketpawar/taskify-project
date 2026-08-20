@@ -26,10 +26,10 @@ app.use((req, res, next) => {
 });
 
 // Database Connection
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/taskify';
-mongoose.connect(MONGO_URI)
-  .then(() => console.log('MongoDB Connected Successfully'))
-  .catch(err => console.error('MongoDB Connection Error:', err));
+const mongoURI = process.env.MONGO_URI || "mongodb://10.0.3.144:27017/taskify";
+mongoose.connect(mongoURI)
+  .then(() => console.log("Connected to MongoDB successfully"))
+  .catch((err) => console.error("MongoDB Connection Error:", err));
 
 // Task Schema
 const Task = mongoose.model('Task', new mongoose.Schema({ 
