@@ -26,8 +26,10 @@ app.use((req, res, next) => {
 });
 
 // Database Connection
-const mongoURI = process.env.MONGO_URI || "mongodb://10.0.3.144:27017/taskify";
-mongoose.connect(mongoURI)
+// Replace hardcoded 'mongodb-service' with process.env.MONGO_URI or direct IP
+const MONGO_URI = process.env.MONGO_URI || "mongodb://10.0.3.144:27017/taskify";
+
+mongoose.connect(MONGO_URI)
   .then(() => console.log("Connected to MongoDB successfully"))
   .catch((err) => console.error("MongoDB Connection Error:", err));
 
