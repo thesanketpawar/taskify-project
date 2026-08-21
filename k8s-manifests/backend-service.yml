@@ -8,7 +8,7 @@ spec:
   selector:
     app: taskify-backend
   ports:
-  - protocol: TCP
+    - protocol: TCP
       port: 5000
       targetPort: 5000
       nodePort: 30005
