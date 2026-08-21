@@ -17,7 +17,4 @@ spec:
       - name: frontend
         image: thesanketpawar/taskify-frontend:latest
         ports:
-          - protocol: TCP
-            port: 80
-            targetPort: 80
-            nodePort: 31365
+        - containerPort: 80
